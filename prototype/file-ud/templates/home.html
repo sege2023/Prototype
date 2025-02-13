@@ -1,0 +1,24 @@
+<!Doctype html>
+<html>
+<head>
+    <title>File Upload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="upload-form">
+        <h1>Upload a File</h1>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit" value="Upload">
+        </form>
+        {% if message %}
+            <div class="message {{ 'success' if 'successfully' in message else 'error' }}">
+                {{ message }}
+            </div>
+        {% endif %}
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="{{ url_for('list_files') }}" class="view-files-button">View Uploaded Files</a>
+        </div>
+    </div>
+</body>
+</html>

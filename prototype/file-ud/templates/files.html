@@ -1,0 +1,21 @@
+<!Doctype html>
+<html>
+<head>
+    <title>Uploaded Files</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="upload-form">
+        <h1>Uploaded Files</h1>
+        <ul>
+            {% for file in files %}
+            <li><a href="/download/{{ file }}">{{ file }}</a></li>
+            {% endfor %}
+        </ul>
+        <!-- Link to go back to the upload page -->
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="{{ url_for('upload_file') }}" class="view-files-button">Back to Upload</a>
+        </div>
+    </div>
+</body>
+</html>
